@@ -5,12 +5,12 @@
 
 {% endblock %}
 {% block content %}
-<h1 class="text-center">Projects:</h1>
+<h1 class="text-center">Polls:</h1>
     {% if  is_paginated %}
         {% include 'partial/pagination.html' %}
     {% endif %}
     {% for poll in polls %}
-        <h2>{{ poll.question }}</h2>
+        <a href="{% url 'poll_view' poll.pk %}"><h2>{{ poll.question }}</h2> </a>
 {#        <div>{{ project.created_at }}</div>#}
 {#        <p><a href="{% url 'project_view' project.pk %}">More...</a></p>#}
 {#        <p><a href="{% url 'project_update' project.pk %}">Edit</a></p>#}
