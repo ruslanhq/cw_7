@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 
 from webapp.forms import ChoiceForm
 from webapp.models import Choice, Poll
@@ -25,4 +25,15 @@ class ChoiceCreate(CreateView):
 
     def get_success_url(self):
         return reverse('poll_view', kwargs={'pk': self.object.poll.pk})
+
+
+class ChoiceUpdate(UpdateView):
+    form_class = ChoiceForm
+    template_name = 'Choice/update.html'
+    model = Choice
+    context_object_name = 'choice'
+
+    def get_success_url(self):
+        return reverse('poll_view', kwargs={'pk': self.object.poll.pk})
+
 
