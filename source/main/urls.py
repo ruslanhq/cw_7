@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path
 
 from webapp.views import IndexView
-from webapp.views.poll_views import PollView, PollCreate, PollUpdate
+from webapp.views.poll_views import PollView, PollCreate, PollUpdate, PollDelete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
     path('poll/<int:pk>/', PollView.as_view(), name='poll_view'),
     path('poll/create/', PollCreate.as_view(), name='poll_create'),
-    path('poll/update/<int:pk>/', PollUpdate.as_view(), name='poll_update')
+    path('poll/update/<int:pk>/', PollUpdate.as_view(), name='poll_update'),
+    path('poll/delete/<int:pk>', PollDelete.as_view(), name='poll_delete')
 ]

@@ -1,1 +1,1 @@
-from .poll_views import IndexView, PollCreate, PollUpdate
+from .poll_views import IndexView, PollCreate, PollUpdate, PollDelete
