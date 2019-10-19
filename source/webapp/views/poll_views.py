@@ -5,7 +5,7 @@ from webapp.models import Poll
 
 
 class IndexView(ListView):
-    context_object_name = 'articles'
+    context_object_name = 'polls'
     model = Poll
     template_name = 'Poll/index.html'
     ordering = ['-created_at']
