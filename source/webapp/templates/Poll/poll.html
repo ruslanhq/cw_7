@@ -7,6 +7,10 @@
 {% endblock %}
 {% block content %}
     <h1>{{ poll.question }}</h1>
+    {% for text in poll.choices.all %}
+        <p>{{ text }}</p>
+    {% endfor %}
+
 {#    <p>{{ poll.choices.text }}</p>#}
 {#    <p>Description projects:  <b>{{ projects.description }}</b> </p>#}
 {#    <h3 class="text-center">Задачи проеката:</h3>#}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Poll{% endblock %}
+{% block content %}
+    <h1>Add New Poll</h1>
+    <form method="POST" action="{% url 'poll_create' %}">
+{% include 'partial/form.html' with button_text='Create' %}
+    </form>
+{% endblock %}
