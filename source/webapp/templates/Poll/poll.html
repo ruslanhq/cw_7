@@ -3,6 +3,8 @@
 {% block menu %}
         <li><a href="{% url 'poll_update' poll.pk %}">Update</a></li>
         <li><a href="{% url 'poll_delete' poll.pk %}">Delete</a></li>
+        <li><a href="{% url 'main_poll' poll.pk %}">Start</a></li>
+
 
 {% endblock %}
 {% block content %}

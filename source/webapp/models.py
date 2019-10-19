@@ -20,5 +20,8 @@ class Choice(models.Model):
 class Answer(models.Model):
     poll = models.ForeignKey('webapp.Poll', related_name='answers',  on_delete=models.CASCADE, verbose_name='Опрос' )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата и время создания')
-    pos_answer = models.ForeignKey('webapp.Choice', related_name='p_answers', on_delete=models.CASCADE,
+    answers = models.ForeignKey('webapp.Choice', related_name='answers', on_delete=models.CASCADE,
                                    verbose_name='Вариант ответа')
+
+    def __str__(self):
+        return self.answers
