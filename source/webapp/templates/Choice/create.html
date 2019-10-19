@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Choice{% endblock %}
+{% block content %}
+    <h1>Add New Choice</h1>
+    <form method="POST" action="">
+{% include 'partial/form.html' with button_text='Create' %}
+    </form>
+{% endblock %}
