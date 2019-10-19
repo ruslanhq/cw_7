@@ -8,7 +8,9 @@
 {% block content %}
     <h1>{{ poll.question }}</h1>
     {% for text in poll.choices.all %}
-        <p>{{ text }}</p> <a href="{% url 'choice_update' text.pk %}"><p>Update</p></a>
+        <p>{{ text }}</p>
+        <a href="{% url 'choice_update' text.pk %}"><p>Update</p></a>
+        <a href="{% url 'choice_delete' text.pk %}"><p>Delete</p></a>
         <hr/>
     {% endfor %}
     <a href="{% url 'choice_create_poll' poll.pk  %}" methods="POST" id="create"><p>Add choice</p></a>

@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import redirect, get_object_or_404
-from django.urls import reverse
-from django.views.generic import CreateView, UpdateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 from webapp.forms import ChoiceForm
 from webapp.models import Choice, Poll
@@ -37,3 +37,11 @@ class ChoiceUpdate(UpdateView):
         return reverse('poll_view', kwargs={'pk': self.object.poll.pk})
 
 
+class ChoiceDelete(DeleteView):
+    template_name = 'Choice/delete.html'
+    model = Choice
+    context_object_name = 'choice'
+
+    def get_success_url(self):
+        return reverse('poll_view', kwargs={'pk': self.object.poll.pk})
+    # success_url = reverse_lazy('index')
